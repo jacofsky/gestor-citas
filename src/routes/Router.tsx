@@ -10,10 +10,7 @@ const Router = () => {
     <Routes>
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
-
-        <CitasProvider>
-            <Route path='/'element={<GestorDeCitas/>}/>
-        </CitasProvider>
+        <Route path='/'element={<GestorDeCitas/>}/>
     </Routes>
   )
 }
