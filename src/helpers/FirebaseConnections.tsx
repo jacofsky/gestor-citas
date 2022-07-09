@@ -1,4 +1,4 @@
-import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
+import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, updateProfile } from 'firebase/auth'
 import { githubProvider, googleProvider } from '../firebase/FirebaseConfig'
 
 
@@ -10,11 +10,14 @@ export const fbSinginEmailPassword = async(email: string, password: string) => {
     return user
 }
 
-export const fbRegister = async(email: string, password: string) => {
+export const fbRegister = async(email: string, password: string, name:string) => {
     const auth =  getAuth()
 
     const user =  await createUserWithEmailAndPassword(auth, email, password)
-    auth.currentUser(user.user)
+    await updateProfile(auth.currentUser as any, {
+        displayName: name
+    })
+    
     return user 
 
 }

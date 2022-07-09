@@ -42,7 +42,7 @@ const LoginForm = () => {
 
         <p>{formik.errors.password}</p>
 
-        <button type="submit">Enviar form</button>
+        <button type="submit">Entrar</button>
     </form>
   )
 }

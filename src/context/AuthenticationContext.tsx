@@ -4,7 +4,7 @@ import { fbGithubRegister, fbGoogleRegister, fbRegister, fbSinginEmailPassword }
 
 interface ContextValues {
   login: (email:string, password: string) => Promise<boolean>
-  register: (email:string, password: string) => Promise<boolean>
+  register: (email:string, password: string, name: string) => Promise<boolean>
   logout: () => void
   user: UserCredential | null
   googleLogin: () => Promise<boolean>
@@ -38,9 +38,12 @@ export const AuthProvider = ({children}: {children: JSX.Element}) => {
 
   // register
 
-  const register = async(email:string, password: string) => {
-    const credentials = await fbRegister(email, password)
-
+  const register = async(email:string, password: string, name: string) => {
+    console.log('Hola');
+    
+    const credentials = await fbRegister(email, password, name)
+    
+    console.log(credentials);
     
     if (credentials.user.displayName) {
       setUser(credentials)
