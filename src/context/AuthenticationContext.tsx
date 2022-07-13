@@ -11,6 +11,11 @@ interface ContextValues {
   githubLogin: () => Promise<boolean>
 }
 
+interface UserStorage {
+  email: string,
+  password: string
+}
+
 export const AuthContext = createContext<ContextValues | null>(null)
 
 export const AuthProvider = ({children}: {children: JSX.Element}) => {
@@ -89,6 +94,21 @@ export const AuthProvider = ({children}: {children: JSX.Element}) => {
     
     return false
 
+  }
+
+  const verifyLogin = async() => {
+    const credentials = localStorage.getItem('user') 
+    if (credentials) {
+      const credParse:UserStorage = JSON.parse(credentials)
+      const user = await fbSinginEmailPassword(credParse.email, credParse.password)
+
+      if (user.user.displayName) {
+        setUser(user)
+        return true
+      }
+      return false
+    }
+    return false
   }
 
   return (

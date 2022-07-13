@@ -14,9 +14,11 @@ export const fbRegister = async(email: string, password: string, name:string) =>
     const auth =  getAuth()
 
     const user =  await createUserWithEmailAndPassword(auth, email, password)
-    await updateProfile(auth.currentUser as any, {
-        displayName: name
-    })
+    if (auth.currentUser) {
+        await updateProfile(auth.currentUser, {
+            displayName: name
+        })
+    }
     
     return user 
 
