@@ -1,6 +1,7 @@
 import React from 'react'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
+import { useCitasContext } from '../context/CitasContext'
 
 interface citaValusTypes {
   medico: string|undefined,
@@ -12,11 +13,7 @@ interface citaValusTypes {
 
 const CitaForm = () => {
 
-  // Medico 
-  // Fecha
-  // Hora 
-  // Tipo de medico
-  // Sintomas 
+  const {createCitas} = useCitasContext()
 
   const citaSchema: Yup.SchemaOf<citaValusTypes> = Yup.object({
     medico: Yup.string().required('El nombre del medico es requerido'),
@@ -36,7 +33,7 @@ const CitaForm = () => {
     },
     validationSchema: citaSchema,
     onSubmit: async(values) => {
-      console.log(values);
+      createCitas(values)
       
     }
   })
