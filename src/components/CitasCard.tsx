@@ -2,10 +2,12 @@ import { DocumentData } from 'firebase/firestore'
 import React from 'react'
 import { useCitasContext } from '../context/CitasContext'
 import { citaData } from '../helpers/FirebaseCitas'
+import styles from '../citaregister.module.css'
 
 interface Props {
   doc: {id: string, data: citaData }
 }
+
 
 const CitasCard = ({doc}:Props) => {
 
@@ -14,7 +16,7 @@ const CitasCard = ({doc}:Props) => {
   const { deleteCita } = useCitasContext()
 
   return (
-    <div>
+    <div className={styles.cardCita}>
       <h1>Turno de: {data.especialidad}</h1>
       <p>Agendado para el {data.fecha} a las {data.hora}hs</p>
       <p>Medico: {data.medico}</p>

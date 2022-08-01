@@ -3,6 +3,8 @@ import { useAuthContext } from '../context/AuthenticationContext'
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
 
+import styles from '../loginregister.module.css'
+
 
 interface registerValusTypes {
   email: string,
@@ -39,25 +41,33 @@ const RegisterForm = () => {
 
   return (
     <form onSubmit={(e) => { e.preventDefault(); formik.handleSubmit(e)}}>
-        <label htmlFor="name">Nombre</label>
-        <input type="name" name="name" id="name" onChange={formik.handleChange} value={formik.values.name} />
+        <div className={styles.inputBox}>
+          <label className={styles.label} htmlFor="name">Nombre</label>
+          <input className={styles.input} type="name" name="name" id="name" onChange={formik.handleChange} value={formik.values.name} />
+          <p className={styles.error}>{formik.errors.name}</p>
+        </div>
 
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" id="email" onChange={formik.handleChange} value={formik.values.email} />
+        <div className={styles.inputBox}>
+          <label className={styles.label} htmlFor="email">Email</label>
+          <input className={styles.input} type="email" name="email" id="email" onChange={formik.handleChange} value={formik.values.email} />
+          <p className={styles.error}>{formik.errors.email}</p>
+        </div>
+        
+        <div className={styles.inputBox}>
+          <label className={styles.label} htmlFor="password">Contraseña</label>
+          <input className={styles.input} type="password" name="password" id="password" onChange={formik.handleChange} value={formik.values.password} />
+          <p className={styles.error}>{formik.errors.password}</p>
+        </div>
+        
+        <div className={styles.inputBox}>
+          <label className={styles.label} htmlFor="rPassword">Repita la contraseña</label>
+          <input className={styles.input} type="password" name="rPassword" id="rPassword" onChange={formik.handleChange} value={formik.values.rPassword} />
+          <p className={styles.error}>{formik.errors.rPassword}</p>
+        </div>
 
-        <label htmlFor="password">Contraseña</label>
-        <input type="password" name="password" id="password" onChange={formik.handleChange} value={formik.values.password} />
-
-        <label htmlFor="rPassword">Repita la contraseña</label>
-        <input type="password" name="rPassword" id="rPassword" onChange={formik.handleChange} value={formik.values.rPassword} />
-
-        <p>{formik.errors.rPassword}</p>
-        <p>{formik.errors.password}</p>
-        <p>{formik.errors.email}</p>
-        <p>{formik.errors.name}</p>
 
 
-        <button type="submit">Registrar</button>
+        <button className={styles.button} type="submit">Registrar</button>
     </form>
   )
 }

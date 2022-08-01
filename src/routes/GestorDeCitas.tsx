@@ -3,19 +3,24 @@ import CitaForm from '../components/CitaForm'
 import CitasList from '../components/CitasList'
 import { CitasProvider } from '../context/CitasContext'
 
+import styles from '../citaregister.module.css'
+
 const GestorDeCitas = () => {
   return (
     <CitasProvider>
-      <div>
+      <div className={styles.container}>
 
-        <h1>TUCITA.COM</h1>
 
-        <div>
-          <CitaForm/>
-        </div>
+        <div className='row'>
+          <div className={`col-12 col-md-6 ${styles.citascontainer}`}>
+            <h1>TUCITA.COM</h1>
+            <CitaForm/>
+          </div>
 
-        <div>
-          <CitasList/>
+          <div className='col-12 col-md-6'>
+            <CitasList/>
+          </div>
+
         </div>
 
       </div>

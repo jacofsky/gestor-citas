@@ -1,0 +1,57 @@
+.container {
+    height: 100vh;
+    background-color: #393e46;
+}
+
+.citascontainer {
+    height: 100vh;
+    background-color: #eeeeee;
+}
+
+.citasBox {
+
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 1rem auto;
+    
+}
+
+.input {
+    border: #393e46 solid 2px;
+    border-radius: .25rem;
+    padding: .15rem;
+}
+
+.label {
+
+}
+
+.button {
+    width: 80%;
+    font-weight: 700;
+    border: 2px solid #393e46;
+    border-radius: .5rem;
+    background-color: #393e46;
+    color: #eeeeee;
+    padding: .25rem 0;
+    transition: .5s all;
+    margin: 0 10%;
+}
+
+.errors {
+    color: rgb(255, 92, 92);
+    font-size: .75rem;
+    margin-top: .25rem;
+}
+
+.cardCita {
+    background-color: #eeeeee;
+    margin: 2rem 0;
+    padding: 1rem;
+    width: 98%;
+    border-radius: .5rem;
+}

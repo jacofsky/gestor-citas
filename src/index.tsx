@@ -5,6 +5,7 @@ import { AuthProvider } from './context/AuthenticationContext';
 
 import Router from './routes/Router';
 
+import './reset.css'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

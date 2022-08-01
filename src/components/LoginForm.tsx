@@ -3,6 +3,7 @@ import * as Yup from 'yup'
 import { useFormik } from 'formik'
 
 import { useAuthContext } from '../context/AuthenticationContext'
+import styles from '../loginregister.module.css'
 
 interface loginValusTypes {
   email: string,
@@ -25,6 +26,8 @@ const LoginForm = () => {
     },
     validationSchema: loginSchema,
     onSubmit: async({email, password}) => {
+      console.log(email, password);
+      
       const user = await login(email, password)
       console.log(user);
       
@@ -34,16 +37,20 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={(e) => { e.preventDefault(); formik.handleSubmit(e)}} >
-        <label htmlFor="email">Email</label>
-        <input type="email" name="email" id="email" onChange={formik.handleChange} value={formik.values.email}/>
-        <p>{formik.errors.email}</p>
+        
+        <div className={styles.inputBox}>
+          <label className={styles.label} htmlFor="email">Email</label>
+          <input className={styles.input} type="email" name="email" id="email" onChange={formik.handleChange} value={formik.values.email}/>
+          <p className={styles.error}>{formik.errors.email}</p>
+        </div>
 
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" id="password" onChange={formik.handleChange} value={formik.values.password}/>
+        <div className={styles.inputBox}>
+          <label className={styles.label} htmlFor="password">Password</label>
+          <input className={styles.input} type="password" name="password" id="password" onChange={formik.handleChange} value={formik.values.password}/>
+          <p className={styles.error}>{formik.errors.password}</p>
+        </div>
 
-        <p>{formik.errors.password}</p>
-
-        <button type="submit">Entrar</button>
+        <button className={styles.button} type="submit">Entrar</button>
     </form>
   )
 }

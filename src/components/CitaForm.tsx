@@ -3,6 +3,8 @@ import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import { useCitasContext } from '../context/CitasContext'
 
+import styles from '../citaregister.module.css'
+
 interface citaValusTypes {
   medico: string|undefined,
   fecha: string|undefined,
@@ -40,34 +42,45 @@ const CitaForm = () => {
    
   return (
     <form onSubmit={(e) => { e.preventDefault(); formik.handleSubmit(e)}}>
-        <label htmlFor="medico">Medico</label>
-        <input type="text" name="medico" id="medico" onChange={formik.handleChange} value={formik.values.medico} />
+        
+        <div className={styles.inputBox}>
+          <label className={styles.label} htmlFor="medico">Medico</label>
+          <input className={styles.input} type="text" name="medico" id="medico" onChange={formik.handleChange} value={formik.values.medico} />
+          <p className={styles.errors}>{formik.errors.medico}</p>
+        </div>
 
-        <label htmlFor="fecha">Fecha</label>
-        <input type="date" name="fecha" id="fecha" onChange={formik.handleChange} value={formik.values.fecha} />
+        <div className={styles.inputBox}>
+          <label className={styles.label} htmlFor="fecha">Fecha</label>
+          <input className={styles.input} type="date" name="fecha" id="fecha" onChange={formik.handleChange} value={formik.values.fecha} />
+          <p className={styles.errors}>{formik.errors.fecha}</p>
+        </div>
 
-        <label htmlFor="hora">Hora</label>
-        <input type="time" name="hora" id="hora" onChange={formik.handleChange} value={formik.values.hora} />
+        <div className={styles.inputBox}>
+          <label className={styles.label} htmlFor="hora">Hora</label>
+          <input className={styles.input} type="time" name="hora" id="hora" onChange={formik.handleChange} value={formik.values.hora} />
+          <p className={styles.errors}>{formik.errors.hora}</p>
+        </div>
 
-        <label htmlFor="especialidad">Especialidad</label>
-        <select name="especialidad" id="especialidad" onChange={formik.handleChange} value={formik.values.especialidad}>
-          <option value="" selected disabled>Seleccionar</option>
-          <option value="General">General</option>
-          <option value="Traumatologia">Traumatologia</option>
-          <option value="Pediatria">Pediatria</option>
-          <option value="Oftalmologia">Oftalmologia</option>
-          <option value="Radiologia">Radiologia</option>
-        </select>
+        <div className={styles.inputBox}>
+          <label className={styles.label} htmlFor="especialidad">Especialidad</label>
+          <select className={styles.input} name="especialidad" id="especialidad" onChange={formik.handleChange} value={formik.values.especialidad}>
+            <option value="" selected disabled>Seleccionar</option>
+            <option value="General">General</option>
+            <option value="Traumatologia">Traumatologia</option>
+            <option value="Pediatria">Pediatria</option>
+            <option value="Oftalmologia">Oftalmologia</option>
+            <option value="Radiologia">Radiologia</option>
+          </select>
+          <p className={styles.errors}>{formik.errors.especialidad}</p>
+        </div>
 
-        <label htmlFor="sintomas">Sintomas</label>
-        <textarea name="sintomas" id="sintomas" onChange={formik.handleChange} value={formik.values.sintomas}></textarea>
+        <div className={styles.inputBox}> 
+          <label className={styles.label} htmlFor="sintomas">Sintomas</label>
+          <textarea className={styles.input} name="sintomas" id="sintomas" onChange={formik.handleChange} value={formik.values.sintomas}></textarea>
+          <p className={styles.errors}>{formik.errors.sintomas}</p>
+        </div>
 
-        <button type="submit">Enviar</button>
-        <p>{formik.errors.especialidad}</p>
-        <p>{formik.errors.fecha}</p>
-        <p>{formik.errors.medico}</p>
-        <p>{formik.errors.hora}</p>
-        <p>{formik.errors.sintomas}</p>
+        <button className={styles.button} type="submit">Enviar</button>
 
     </form>
   )
