@@ -26,10 +26,8 @@ const LoginForm = () => {
     },
     validationSchema: loginSchema,
     onSubmit: async({email, password}) => {
-      console.log(email, password);
       
       const user = await login(email, password)
-      console.log(user);
       
     }
   })

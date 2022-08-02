@@ -9,8 +9,6 @@ const CitasList = () => {
 
   const {citas, loadingAction} = useCitasContext()
   
-  console.log(citas);
-
   return (
     <>
       {

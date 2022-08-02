@@ -17,7 +17,6 @@ export const fbSinginEmailPassword = async(email: string, password: string) => {
             confirmButtonText: 'Ok',
             background: '#eeeeee'
         })
-        console.log('goood');
         
         return null
           
@@ -46,7 +45,6 @@ export const fbRegister = async(email: string, password: string, name:string) =>
             confirmButtonText: 'Ok',
             background: '#eeeeee'
         })
-        console.log('goood');
         
         return null
           

@@ -52,10 +52,8 @@ export const fbGetCitas = async():Promise<docsCitas[]|null> => {
 export const fbDeleteCita = async (id:string) => {
 
     const auth = getAuth()
-    console.log(id);
     
     if(auth.currentUser?.uid != null) {
         const deleteCita = await deleteDoc(doc(db, auth.currentUser.uid, id))
-        console.log(deleteCita)
     }
 }

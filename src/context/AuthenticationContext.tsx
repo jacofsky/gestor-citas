@@ -36,7 +36,6 @@ export const AuthProvider = ({children}: {children: JSX.Element}) => {
 
   const login = async(email:string, password: string) => {
     const credentials = await fbSinginEmailPassword(email, password)
-    console.log(credentials);
     
     if (credentials?.user.displayName) {
       setUser(credentials)
@@ -51,12 +50,9 @@ export const AuthProvider = ({children}: {children: JSX.Element}) => {
   // register
 
   const register = async(email:string, password: string, name: string) => {
-    console.log('Hola');
     
     const credentials = await fbRegister(email, password, name)
-    
-    console.log(credentials);
-    
+        
     if (credentials?.user.displayName) {
       setUser(credentials)
       localStorage.setItem('user', JSON.stringify({email, password}))
