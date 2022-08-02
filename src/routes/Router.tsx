@@ -13,6 +13,7 @@ const Router = () => {
   const {user} = useAuthContext()
 
   return (
+    
     <Routes>
         <Route path='/login' element={
           <PublicRoute uid={user?.user.uid}>

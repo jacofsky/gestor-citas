@@ -51,7 +51,7 @@ const CitaForm = () => {
 
         <div className={styles.inputBox}>
           <label className={styles.label} htmlFor="fecha">Fecha</label>
-          <input className={styles.input} type="date" name="fecha" id="fecha" onChange={formik.handleChange} value={formik.values.fecha} />
+          <input className={styles.input} type="date" name="fecha" id="fecha" min={new Date().toLocaleDateString()} onChange={formik.handleChange} value={formik.values.fecha} />
           <p className={styles.errors}>{formik.errors.fecha}</p>
         </div>
 

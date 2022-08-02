@@ -6,15 +6,18 @@ import { AuthProvider } from './context/AuthenticationContext';
 import Router from './routes/Router';
 
 import './reset.css'
+import GestorApp from './GestorApp';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <Router />
+        <GestorApp />
       </AuthProvider> 
     </BrowserRouter>
   </React.StrictMode>

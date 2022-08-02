@@ -48,8 +48,8 @@
 }
 
 .button:hover {
-    background-color: #393e46e1;
-    border: 2px solid #393e46e1;
+    background-color: #686e79;
+    border: 2px solid #686e79;
     
 }
 
@@ -79,4 +79,21 @@
     display: flex;
     justify-content: center;
 
+}
+
+.loginWithBtn {
+    color: #eeeeee;
+    background-color: #393e46;
+    border: 0;
+    padding: .5rem;
+    border-radius: 5rem;
+    transition: all .5s;
+}
+
+.loginWithBtn:hover {
+    background-color: #686e79;
+}
+
+.loginWithBtn:active {
+    background-color: #393e46;
 }

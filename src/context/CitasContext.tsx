@@ -4,7 +4,8 @@ import { docsCitas, fbCreateCita, fbDeleteCita, fbGetCitas } from '../helpers/Fi
 interface ContextValues {
   createCitas: (cita: citaValusTypes) => void,
   deleteCita: (id: string) => void,
-  citas: docsCitas[]|null
+  citas: docsCitas[]|null,
+  loadingAction: boolean
 }
 
 export interface citaValusTypes {
@@ -51,20 +52,23 @@ export const CitasProvider = ({children}: {children: JSX.Element}) => {
   const getCitas = async () => {
     
     const citasArray = await fbGetCitas()
-
+    
     if (citasArray) {
       setCitas(citasArray)
     }
-
+    
   }
-
+  
   useEffect(() => {
+    setLoadingAction(true)
     getCitas()
+    setLoadingAction(false)
+
   }, [loadingAction])
 
 
   return (
-    <CitasContext.Provider value={{createCitas, citas, deleteCita}}>
+    <CitasContext.Provider value={{createCitas, citas, deleteCita, loadingAction}}>
         {children}
     </CitasContext.Provider>
   )

@@ -12,6 +12,12 @@
 
 }
 
+.heading {
+    text-align: center;
+    font-size: 1.75rem;
+    margin-top: 2rem;
+}
+
 .inputBox {
     display: flex;
     flex-direction: column;
@@ -54,4 +60,104 @@
     padding: 1rem;
     width: 98%;
     border-radius: .5rem;
+}
+
+.cardCita p {
+    margin: .5rem 0;
+    
+}
+
+.cardCita h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.citasColumn {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.borrarButton {
+    background-color: rgb(255, 96, 96);
+    color: #ffffff;
+    border-radius: .25rem;
+    width: 100%;
+    border: 0;
+    padding: .25rem 0;
+    margin-top: .25rem;
+    transition: all .5s;
+}
+
+.borrarButton:hover {
+    background-color: rgb(226, 79, 79);
+}
+
+.borrarButton:active {
+    background-color: rgb(163, 53, 53);
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+
+}
+
+.loader p {
+    font-size: 1.25rem;
+    color: white;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.citasColumn {
+    scrollbar-width: auto;
+    scrollbar-color: #ffffff #ffffff;
+}
+
+.citasColumn::-webkit-scrollbar {
+    width: 10px;
+}
+
+.citasColumn::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.citasColumn::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}
+
+.buttonLogout {
+    background-color: rgb(226, 79, 79);
+    color: white;
+    font-size: 1.25rem;
+    border: 0;
+    border-radius: .25rem;
+    padding: .25rem;
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
+
+.buttonLogout:hover {
+    background-color: rgb(226, 79, 79);
+}
+
+.buttonLogout:active {
+    background-color: rgb(163, 53, 53);
+}
+
+.buttonBox {
+    position: relative;
+}
+
+@media only screen and (max-width: 767px) {
+    .citascontainer {
+        height: 55vh;
+    }
 }

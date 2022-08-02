@@ -17,12 +17,12 @@ const CitasCard = ({doc}:Props) => {
 
   return (
     <div className={styles.cardCita}>
-      <h1>Turno de: {data.especialidad}</h1>
+      <h3>Turno de: {data.especialidad}</h3>
       <p>Agendado para el {data.fecha} a las {data.hora}hs</p>
       <p>Medico: {data.medico}</p>
       <p>Paciente: {data.paciente}</p>
       <p>Sintomas: {data.sintomas}</p>
-      <button onClick={() => deleteCita(id)}>Borrar</button>
+      <button className={styles.borrarButton} onClick={() => deleteCita(id)}>Borrar</button>
     </div>
   )
 }

@@ -1,26 +1,56 @@
 import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, updateProfile } from 'firebase/auth'
+import Swal from 'sweetalert2'
 import { githubProvider, googleProvider } from '../firebase/FirebaseConfig'
 
 
 export const fbSinginEmailPassword = async(email: string, password: string) => {
     const auth = getAuth()
 
-    const user = await signInWithEmailAndPassword(auth, email, password)
+    try {
+        const user = await signInWithEmailAndPassword(auth, email, password)
+        return user
+    } catch (error) {
+        Swal.fire({
+            title: 'Usuario o contraseña equivocados',
+            icon: 'error',
+            confirmButtonColor: '#393e46',
+            confirmButtonText: 'Ok',
+            background: '#eeeeee'
+        })
+        console.log('goood');
+        
+        return null
+          
+    }
 
-    return user
 }
 
 export const fbRegister = async(email: string, password: string, name:string) => {
     const auth =  getAuth()
 
-    const user =  await createUserWithEmailAndPassword(auth, email, password)
-    if (auth.currentUser) {
-        await updateProfile(auth.currentUser, {
-            displayName: name
+    try {
+        const user =  await createUserWithEmailAndPassword(auth, email, password)
+        if (auth.currentUser) {
+            await updateProfile(auth.currentUser, {
+                displayName: name
+            })
+        }
+        
+        return user 
+        
+    } catch (error) {
+        Swal.fire({
+            title: 'Registro fallido',
+            icon: 'error',
+            confirmButtonColor: '#393e46',
+            confirmButtonText: 'Ok',
+            background: '#eeeeee'
         })
+        console.log('goood');
+        
+        return null
+          
     }
-    
-    return user 
 
 }
 

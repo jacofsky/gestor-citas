@@ -1,5 +1,5 @@
 import { UserCredential } from '@firebase/auth'
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { fbGithubRegister, fbGoogleRegister, fbRegister, fbSinginEmailPassword } from '../helpers/FirebaseConnections'
 
 interface ContextValues {
@@ -25,13 +25,20 @@ export const AuthProvider = ({children}: {children: JSX.Element}) => {
 
   const [user, setUser] = useState<UserCredential | null>(null)
 
+
+  useEffect(() => {
+    verifyLogin()
+  }, [])
+  
+
+
   // login
 
   const login = async(email:string, password: string) => {
     const credentials = await fbSinginEmailPassword(email, password)
     console.log(credentials);
     
-    if (credentials.user.displayName) {
+    if (credentials?.user.displayName) {
       setUser(credentials)
       localStorage.setItem('user', JSON.stringify({email, password}))
       return true
@@ -50,7 +57,7 @@ export const AuthProvider = ({children}: {children: JSX.Element}) => {
     
     console.log(credentials);
     
-    if (credentials.user.displayName) {
+    if (credentials?.user.displayName) {
       setUser(credentials)
       localStorage.setItem('user', JSON.stringify({email, password}))
       return true
@@ -102,7 +109,7 @@ export const AuthProvider = ({children}: {children: JSX.Element}) => {
       const credParse:UserStorage = JSON.parse(credentials)
       const user = await fbSinginEmailPassword(credParse.email, credParse.password)
 
-      if (user.user.displayName) {
+      if (user?.user.displayName) {
         setUser(user)
         return true
       }
