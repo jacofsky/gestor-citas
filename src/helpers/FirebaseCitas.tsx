@@ -54,6 +54,6 @@ export const fbDeleteCita = async (id:string) => {
     const auth = getAuth()
     
     if(auth.currentUser?.uid != null) {
-        const deleteCita = await deleteDoc(doc(db, auth.currentUser.uid, id))
+        await deleteDoc(doc(db, auth.currentUser.uid, id))
     }
 }
