@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/AuthenticationContext';
 
-import Router from './routes/Router';
-
 import './reset.css'
 import GestorApp from './GestorApp';
 

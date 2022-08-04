@@ -1,7 +1,6 @@
 import React from 'react'
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useAuthContext } from '../context/AuthenticationContext';
-import { CitasProvider } from '../context/CitasContext';
 import GestorDeCitas from './GestorDeCitas';
 import Login from './Login';
 import PrivateRoute from './PrivateRoute';

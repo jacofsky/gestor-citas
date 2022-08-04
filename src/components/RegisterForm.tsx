@@ -33,7 +33,7 @@ const RegisterForm = () => {
     },
     validationSchema: registerSchema,
     onSubmit: async({email, password, name}) => {      
-      const user = await register(email, password, name)
+      await register(email, password, name)
       
     }
   })

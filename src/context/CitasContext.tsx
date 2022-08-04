@@ -43,7 +43,7 @@ export const CitasProvider = ({children}: {children: JSX.Element}) => {
   const deleteCita = async(id: string) => {
     setLoadingAction(true)
 
-    const deleteCita = await fbDeleteCita(id)
+    await fbDeleteCita(id)
     setLoadingAction(false)
 
   }

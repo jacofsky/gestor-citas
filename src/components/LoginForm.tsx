@@ -27,7 +27,7 @@ const LoginForm = () => {
     validationSchema: loginSchema,
     onSubmit: async({email, password}) => {
       
-      const user = await login(email, password)
+      await login(email, password)
       
     }
   })

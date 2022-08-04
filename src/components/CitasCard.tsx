@@ -1,4 +1,3 @@
-import { DocumentData } from 'firebase/firestore'
 import React from 'react'
 import { useCitasContext } from '../context/CitasContext'
 import { citaData } from '../helpers/FirebaseCitas'
